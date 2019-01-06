@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <Env.HADOOP_CLASSPATH>/home/christ/NetBeansProjects/maven_Hadoop/target/maven_Hadoop-1.0-SNAPSHOT.jar</Env.HADOOP_CLASSPATH>
+                <exec.args>ucuenca.bigdata.hadoop.Principal /bigdata/InputFiles /bigdata/OutputFiles</exec.args>
+                <exec.executable>/home/christ/Documentos/hadoop/hadoop-2.8.5/bin/hadoop</exec.executable>
+            </properties>
+        </action>
+    </actions>

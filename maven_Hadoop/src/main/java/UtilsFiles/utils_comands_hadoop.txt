@@ -1,0 +1,47 @@
+Propiedades -> actions -> Run project
+    Env.HADOOP_CLASSPATH=/home/christ/NetBeansProjects/maven_Hadoop/target/maven_Hadoop-1.0-SNAPSHOT.jar
+    exec.args=ucuenca.bigdata.hadoop.Main /bigdata/InputFiles /bigdata/OutputFiles
+    exec.executable=/home/christ/Documentos/hadoop/hadoop-2.8.5/bin/hadoop
+
+
+
+/*******************Ver historia*****************************/
+mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
+export HADOOP_CLASSPATH=$(hadoop classpath)
+/*******************Crear directorios*****************************/
+hadoop fs -mkdir /bigdata 
+hadoop fs -mkdir /bigdata/InputFiles
+/*******************Sube archivos en directorio hadoop*****************************/
+hadoop fs -put '/home/christ/Documentos/hadoop/samples/TutorialContador/input_data/input.txt' /bigdata/InputFiles
+
+hadoop fs -put '/home/christ/Documentos/hadoop/samples/inputFiles/2001_c.csv' /bigdata/InputFiles
+
+
+
+/************************************************/
+javac -classpath $HADOOP_CLASSPATH -d '/home/christ/Documentos/hadoop/samples/TutorialContador/tutorial_class' '/home/christ/Documentos/hadoop/samples/TutorialContador/contadorPalabras.java' 
+jar -cvf contador.jar -C '/home/christ/Documentos/hadoop/samples/TutorialContador/tutorial_class/' .
+hadoop jar '/home/christ/Documentos/hadoop/samples/TutorialContador/contador.jar' contadorPalabras  /bigdata/InputFiles /bigdata/OutputFiles
+hadoop dfs -cat /bigdata/OutputFiles/*
+
+
+
+
+/*ver archivo*/
+hadoop fs -cat /outputFiles/part-r-00000;
+
+/*remove dir|file*/
+hadoop fs -rm -r /inputFiles/;
+hadoop fs -rm -r /outputFiles/;
+
+/*create dir*/
+hadoop fs -mkdir /inputFiles;
+
+/*copy from local*/
+hadoop fs -copyFromLocal /home/christ/Documentos/hadoop/samples/inputFiles/* /inputFiles;
+
+/*****************ver avance subida archivo***************/
+watch hadoop fs -ls /bigdata/InputFiles;
+
+/*1) quit safemode*/
+hdfs dfsadmin -safemode leave;
