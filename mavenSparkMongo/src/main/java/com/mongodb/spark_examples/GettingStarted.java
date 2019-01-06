@@ -28,7 +28,6 @@ public class GettingStarted {
       .config("spark.mongodb.output.uri", "mongodb://127.0.0.1:27017/mydb.myCollection")
       .config("spark.driver.bindAddress", "127.0.0.1")
       .getOrCreate();
-    
 
     // Create a JavaSparkContext using the SparkSession's SparkContext object
     JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
