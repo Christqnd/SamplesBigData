@@ -17,9 +17,9 @@ import scala.Tuple2;
  * @author christ
  */
 public class WordCountWithSpark {
-    
+
     public static void main(String[] args) {
-            SparkSession spark = SparkSession.builder()
+        SparkSession spark = SparkSession.builder()
                 .master("local")
                 .appName("JavaWordCountWithSpark")
                 .config("spark.driver.bindAddress", "127.0.0.1")
@@ -37,5 +37,5 @@ public class WordCountWithSpark {
         }
         spark.stop();
     }
-        
+
 }

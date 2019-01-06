@@ -8,7 +8,6 @@ package com.mongodb.spark_examples;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 
-
 /**
  *
  * @author hduser
@@ -20,13 +19,13 @@ public class GettingStartedSparkMongo {
      * If config arguments are passed from the command line using --conf,
      * parse args for the values to set.
          */
-  
+
         SparkConf conf = new SparkConf().setMaster("local").setAppName("MiApp").set("spark.driver.bindAddress", "127.0.0.1");
 
         JavaSparkContext jsc = new JavaSparkContext(conf);
 
         jsc.close();
-       
+
     }
-    
+
 }

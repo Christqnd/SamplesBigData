@@ -13,24 +13,23 @@ import org.apache.spark.sql.SparkSession;
  * @author christ
  */
 public class SparkMongo {
-    
+
     public static void main(String[] args) {
-        
-            SparkSession spark = SparkSession.builder()
-      .master("local")
-      .appName("MongoSparkConnectorIntro")
-      .config("spark.mongodb.input.uri", "mongodb://127.0.0.1:27017/mydb.myCollection")
-      .config("spark.mongodb.output.uri", "mongodb://127.0.0.1:27017/mydb.myCollection")
-      .config("spark.driver.bindAddress", "127.0.0.1")
-      .getOrCreate();
 
-    // Create a JavaSparkContext using the SparkSession's SparkContext object
-    JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
+        SparkSession spark = SparkSession.builder()
+                .master("local")
+                .appName("MongoSparkConnectorIntro")
+                .config("spark.mongodb.input.uri", "mongodb://127.0.0.1:27017/mydb.myCollection")
+                .config("spark.mongodb.output.uri", "mongodb://127.0.0.1:27017/mydb.myCollection")
+                .config("spark.driver.bindAddress", "127.0.0.1")
+                .getOrCreate();
 
-    // More application logic would go here...
+        // Create a JavaSparkContext using the SparkSession's SparkContext object
+        JavaSparkContext jsc = new JavaSparkContext(spark.sparkContext());
 
-    jsc.close();
-    
+        // More application logic would go here...
+        jsc.close();
+
     }
-    
+
 }
