@@ -8,20 +8,15 @@ package com.mongodb.spark_examples;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 
-
 /**
  *
- * @author hduser
+ * @author christ
  */
-public class GettingStarted {
-
-    public static void main(final String[] args) throws InterruptedException {
-        /* Create the SparkSession.
-     * If config arguments are passed from the command line using --conf,
-     * parse args for the values to set.
-         */
-  
-    SparkSession spark = SparkSession.builder()
+public class SparkMongo {
+    
+    public static void main(String[] args) {
+        
+            SparkSession spark = SparkSession.builder()
       .master("local")
       .appName("MongoSparkConnectorIntro")
       .config("spark.mongodb.input.uri", "mongodb://127.0.0.1:27017/mydb.myCollection")
@@ -36,14 +31,6 @@ public class GettingStarted {
 
     jsc.close();
     
-            /*
-        SparkConf conf = new SparkConf().setMaster("local").setAppName("MiApp").set("spark.driver.bindAddress", "127.0.0.1");
-
-        JavaSparkContext jsc = new JavaSparkContext(conf);
-
-        jsc.close();
-         */    
-         
     }
     
 }
