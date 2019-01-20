@@ -24,3 +24,6 @@ hs_err_pid*
 /maven_Hadoop/target/
 /spark-mongodb/target/
 /maven_SparkMongo/target/
+/maven_kafka/target/
+/maven_Kafka/target/
+/maven_KafkaSpark/target/
